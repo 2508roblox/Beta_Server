@@ -17,7 +17,10 @@ import { Server } from "socket.io"
 //socket
 const app = express()
 app.use(cors({
-    origin: 'http://www.giangg.site'
+
+    origin: 'http://www.giangg.site',
+    credentials: true
+
 }));
 app.use(express.json());
 // Add headers before the routes are defined
