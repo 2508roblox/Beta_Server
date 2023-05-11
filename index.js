@@ -16,9 +16,7 @@ import { Server } from "socket.io"
 
 //socket
 const app = express()
-app.use(cors({
-    origin: 'http://www.giangg.site'
-}));
+app.use(cors());
 app.use(express.json());
 // Add headers before the routes are defined
 
@@ -26,7 +24,7 @@ const server = http.createServer(app)
 // config io
 const io = new Server({
     cors: {
-        origin: "http://www.giangg.site"
+        origin: "https://www.giangg.site"
     }
 });
 io.listen(4000);
@@ -34,11 +32,6 @@ dotenv.config();
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
-app.use(helmet({
-    referrerPolicy: {
-        policy: 'strict-origin-when-cross-origin'
-    }
-}));
 mongoose.connect('mongodb+srv://dbUsers:123@cluster0.qofi8wl.mongodb.net/test', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
