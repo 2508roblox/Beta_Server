@@ -27,7 +27,7 @@ app.use(express.json());
 
 const server = http.createServer(app)
 // config io
-const io = new Server({
+const io = new Server(server, {
     cors: {
         origin: "*"
     }
