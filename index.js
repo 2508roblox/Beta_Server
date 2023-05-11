@@ -29,7 +29,8 @@ const server = http.createServer(app)
 // config io
 const io = new Server(server, {
     cors: {
-        origin: "*"
+        origin: 'http://www.giangg.site',
+        credentials: true
     }
 });
 io.listen(4000);
