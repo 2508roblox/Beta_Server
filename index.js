@@ -26,9 +26,7 @@ const server = http.createServer(app)
 // config io
 const io = new Server({
     cors: {
-        origin: "http://www.giangg.site",
-        methods: ["GET", "POST"],
-        allowedHeaders: ["my-custom-header"],
+        origin: "http://www.giangg.site"
     }
 });
 io.listen(4000);
