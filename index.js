@@ -18,7 +18,7 @@ import { Server } from "socket.io"
 const app = express()
 app.use(cors({
 
-    origin: ['http://giangg.site', 'http://www.giangg.site'],
+    origin: ['http://giangg.site', 'http://www.giangg.site', 'http://localhost:3000'],
     credentials: true
 
 }));
@@ -29,7 +29,7 @@ const server = http.createServer(app)
 // config io
 const io = new Server(server, {
     cors: {
-        origin: ['http://giangg.site', 'http://www.giangg.site'],
+        origin: ['http://giangg.site', 'http://www.giangg.site', 'http://localhost:3000'],
         credentials: true
     }
 });
