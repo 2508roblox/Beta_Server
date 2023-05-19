@@ -9,6 +9,8 @@ import PostRoute from './Router/PostRoute.js';
 import FriendRoute from './Router/FriendRoute.js';
 import Conversation from './Router/Conversation.js';
 import Messages from './Router/Messages.js';
+import CommentRoute from './Router/CommentRoute.js';
+import StoryRoute from './Router/StoryRoute.js';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import http from 'http'
@@ -18,13 +20,12 @@ import { Server } from "socket.io"
 const app = express()
 app.use(cors({
 
-    origin: ['http://giangg.site', 'http://www.giangg.site', 'http://localhost:3000'],
+    origin: ['http://giangg.site', 'http://www.giangg.site', 'http://localhost:3000',' https://2508roblox.github.io/SocialMediaUITailwind', ' https://2508roblox.github.io'],
     credentials: true
 
 }));
 app.use(express.json());
 // Add headers before the routes are defined
-
 const server = http.createServer(app)
 // config io
 const io = new Server(server, {
@@ -35,7 +36,6 @@ const io = new Server(server, {
 });
 io.listen(4000);
 dotenv.config();
-
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: false }))
 mongoose.connect('mongodb+srv://dbUsers:123@cluster0.qofi8wl.mongodb.net/test', {
@@ -106,8 +106,9 @@ app.use('/api/v1/posts', PostRoute)
 app.use('/api/v1/friends', FriendRoute)
 app.use('/api/v1/conversations', Conversation)
 app.use('/api/v1/messages', Messages)
+// post comment
 
-
-
+app.use('/api/v1/comments', CommentRoute)
+app.use('/api/v1/story', StoryRoute)
 
 
